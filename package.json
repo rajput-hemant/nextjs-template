@@ -6,8 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-		"preview": "next build && next start",
+    "preview": "next build && next start",
     "lint": "next lint",
+    "type-check": "tsc --noEmit",
     "fmt:check": "prettier --check \"**/*.{ts,tsx,mdx}\" --cache",
     "fmt:write": "prettier --write \"**/*.{ts,tsx,mdx}\" --cache",
     "prepare": "husky install"
