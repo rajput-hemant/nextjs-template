@@ -1,10 +1,10 @@
-import { Inter } from "next/font/google";
+import { Poppins } from "next/font/google";
 
 import { cn } from "@/lib/utils";
 
-import "../styles/globals.css";
+import "@/styles/globals.css";
 
-const inter = Inter({ subsets: ["latin"] });
+const poppins = Poppins({ subsets: ["latin"], weight: "600" });
 
 export const metadata = {
   title: "Next.js + TypeScript Starter",
@@ -14,7 +14,7 @@ export const metadata = {
 const RootLayout = ({ children }: { children: React.ReactNode }) => {
   return (
     <html lang="en">
-      <body className={cn("bg-black", inter.className)}>{children}</body>
+      <body className={cn("bg-black", poppins.className)}>{children}</body>
     </html>
   );
 };

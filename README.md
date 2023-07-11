@@ -29,17 +29,16 @@
 
 ## Getting Started
 
+```bash
+npx create-next-app -e "https://github.com/rajput-hemant/nextjs-template" <project-name>
+```
+
+<p align="center" style="font-weight: bold;">OR</p>
+
 **Install `degit` globally**
 
 ```bash
-# pnpm
-pnpm install -g degit
-
-# yarn
-yarn global add degit
-
-# npm
-npm install -g degit
+pnpm i -g degit || yarn global add degit || npm i -g degit
 ```
 
 **Create a new project from this template**
@@ -52,14 +51,7 @@ cd <project-name>
 **Install dependencies**
 
 ```bash
-# pnpm
-pnpm i
-
-# yarn
-yarn
-
-# npm
-npm i
+pnpm i || yarn || npm i
 ```
 
 **Initialize a new git repository _(Optional)_:**
@@ -70,20 +62,57 @@ git add .
 git commit --no-verify -m "init"
 ```
 
-##
-
 ## Available Scripts
 
 In the project directory, you can run:
 
-- **`pnpm dev`** - Runs the app in the development mode. Open http://localhost:3000 to view it in the browser.
-- **`pnpm build`** - Builds the app for production to the `.next` folder.
-- **`pnpm start`** - Runs the built app in the production mode. Open http://localhost:3000 to view it in the browser.
-- **`pnpm preview`** - Builds and serves the app in the production mode. Open http://localhost:3000 to view it in the browser.
-- **`pnpm lint`** - Runs ESLint with Prettier in the `pages` and `src` folders.
-- **`pnpm fmt:check`** - Checks if the code is formatted with Prettier.
-- **`pnpm fmt:write`** - Formats the code with Prettier.
-- **`pnpm prepare`** - Runs Husky install.
+| **Script**   | **Description**                                      |
+| ------------ | ---------------------------------------------------- |
+| `dev`        | Runs the app in the development mode.                |
+| `build`      | Builds the app for production to the `.next` folder. |
+| `start`      | Runs the built app in the production mode.           |
+| `preview`    | Builds and serves the app in the production mode.    |
+| `lint`       | Runs next lint on the project.                       |
+| `type-check` | Runs TypeScript type checker.                        |
+| `fmt:check`  | Checks if the code is formatted with Prettier.       |
+| `fmt:write`  | Formats the code with Prettier.                      |
+| `prepare`    | Installs husky git hooks.                            |
+
+## Folder Structure
+
+```bash
+.
+├── public
+│   ├── favicon.ico
+│   ├── nextjs-dark.svg
+│   └── nextjs-light.svg
+├── src
+│   ├── app
+│   │   ├── layout.tsx
+│   │   └── page.tsx
+│   ├── lib
+│   │   └── utils.ts
+│   ├── styles
+│   │   └── globals.css
+│   └── types
+│       ├── next-env.d.ts
+│       └── reset.d.ts
+├── LICENSE
+├── README.md
+├── next.config.js
+├── package.json
+├── pnpm-lock.yaml
+├── postcss.config.js
+├── renovate.json
+├── tailwind.config.js
+└── tsconfig.json
+```
+
+## After Installation Checklist
+
+- [ ] Update `package.json` with your project details.
+- [ ] Update `README.md` with your project details.
+- [ ] Update `LICENSE` with your name and year.
 
 ## Switching Package Manager
 
