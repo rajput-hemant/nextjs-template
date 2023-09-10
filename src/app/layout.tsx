@@ -17,7 +17,7 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
     <html lang="en">
       <body
         className={cn(
-          "layout min-h-screen bg-black/90 px-8 pt-8 text-white antialiased lg:px-16",
+          "layout min-h-screen bg-black/90 px-8 pt-4 text-white antialiased md:pt-2 lg:px-16",
           poppins.className
         )}
       >

@@ -30,6 +30,8 @@
 ## Getting Started
 
 ```bash
+bun create next-app -e "https://github.com/rajput-hemant/nextjs-template" <project-name>
+
 npx create-next-app -e "https://github.com/rajput-hemant/nextjs-template" <project-name>
 ```
 
@@ -38,7 +40,7 @@ npx create-next-app -e "https://github.com/rajput-hemant/nextjs-template" <proje
 **Install `degit` globally**
 
 ```bash
-pnpm i -g degit || yarn global add degit || npm i -g degit
+bun i -g degit || pnpm i -g degit || yarn global add degit || npm i -g degit
 ```
 
 **Create a new project from this template**
@@ -51,7 +53,7 @@ cd <project-name>
 **Install dependencies**
 
 ```bash
-pnpm i || yarn || npm i
+bun i || pnpm i || yarn || npm i
 ```
 
 **Initialize a new git repository _(Optional)_:**
@@ -95,11 +97,11 @@ In the project directory, you can run:
 │   ├── styles
 │   │   └── globals.css
 │   └── types
-│       ├── next-env.d.ts
 │       └── reset.d.ts
 ├── LICENSE
 ├── README.md
 ├── next.config.js
+├── next-env.d.ts
 ├── package.json
 ├── pnpm-lock.yaml
 ├── postcss.config.js
@@ -116,7 +118,7 @@ In the project directory, you can run:
 
 ## Switching Package Manager
 
-This template uses [pnpm](https://pnpm.io/) as the default package manager. If you want to use `npm` or `yarn`, you need to remove the `pnpm-lock.yaml` file and run `npm i` or `yarn` to generate the lock file for the respective package manager.
+This template uses [bun](https://bun.sh/docs/cli/install) as the default package manager. If you want to use `pnpm`, `npm` or `yarn`, you need to remove the `bun.lockb` file and run `pnpm i`, `npm i` or `yarn` to generate the lock file for the respective package manager.
 
 ## License
 
