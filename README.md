@@ -25,7 +25,7 @@
 - 🐶 **[Husky](https://typicode.github.io/husky/#/)** - A tool that makes Git hooks easy
 - 🚫 **[lint-staged](https://github.com/okonet/lint-staged)** - Run linters against staged git files
 - 📄 **[commitlint](https://commitlint.js.org/#/)** - Lint commit messages
-- 📦 **[pnpm](https://pnpm.io/)** - Fast, disk space efficient package manager
+- 📦 **[bun](https://bun.sh)** - A JavaScript runtime w/ Fast, disk space efficient package manager
 
 ## Getting Started
 
@@ -103,7 +103,6 @@ In the project directory, you can run:
 ├── next.config.js
 ├── next-env.d.ts
 ├── package.json
-├── pnpm-lock.yaml
 ├── postcss.config.js
 ├── renovate.json
 ├── tailwind.config.js
