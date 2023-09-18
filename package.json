@@ -15,7 +15,7 @@
   },
   "dependencies": {
     "clsx": "^2.0.0",
-    "lucide-react": "^0.276.0",
+    "lucide-react": "^0.279.0",
     "next": "13.4.19",
     "react": "18.2.0",
     "react-dom": "18.2.0",
@@ -26,7 +26,7 @@
     "@commitlint/config-conventional": "^17.7.0",
     "@ianvs/prettier-plugin-sort-imports": "^4.1.0",
     "@total-typescript/ts-reset": "^0.5.1",
-    "@types/node": "20.6.0",
+    "@types/node": "20.6.2",
     "@types/react": "18.2.21",
     "@types/react-dom": "18.2.7",
     "autoprefixer": "10.4.15",
