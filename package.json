@@ -9,14 +9,15 @@
     "preview": "next build && next start",
     "lint": "next lint",
     "type-check": "tsc --noEmit",
-    "fmt:check": "prettier --check \"**/*.{ts,tsx,mdx}\" --cache",
-    "fmt:write": "prettier --write \"**/*.{ts,tsx,mdx}\" --cache",
+    "fmt:check": "prettier --check \"**/*.{ts,tsx,mdx,json}\" --cache",
+    "fmt:write": "prettier --write \"**/*.{ts,tsx,mdx,json}\" --cache",
     "prepare": "husky install"
   },
   "dependencies": {
     "clsx": "^2.0.0",
     "lucide-react": "^0.279.0",
     "next": "13.5.2",
+    "next-themes": "^0.2.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "tailwind-merge": "^1.14.0"

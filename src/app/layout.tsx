@@ -1,11 +1,10 @@
-import { Poppins } from "next/font/google";
-
+import { poppins } from "@/lib/fonts";
 import { cn } from "@/lib/utils";
+import { Providers } from "@/components/providers";
+import { TailwindIndicator } from "@/components/tailwind-indicator";
 
 import "@/styles/globals.css";
 import "@/styles/layout.css";
-
-const poppins = Poppins({ subsets: ["latin"], weight: "600" });
 
 export const metadata = {
   title: "Next.js + TypeScript Starter",
@@ -21,7 +20,9 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
           poppins.className
         )}
       >
-        {children}
+        <Providers>{children}</Providers>
+
+        <TailwindIndicator />
       </body>
     </html>
   );
