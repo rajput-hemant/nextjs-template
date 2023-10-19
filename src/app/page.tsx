@@ -1,13 +1,20 @@
 "use client";
 
-import { useState } from "react";
+import "@/styles/layout.css";
+
+import { useEffect, useRef, useState } from "react";
+import Image from "next/image";
 import {
   Clipboard,
   ClipboardCheck,
   Copyright,
+  FlameKindling,
   Github,
+  Mouse,
   MoveUpRight,
 } from "lucide-react";
+
+import { useEventListener } from "@/hooks/use-event-listner";
 
 type Feature = {
   title: string;
@@ -557,6 +564,77 @@ type PackageManagers = keyof typeof packageManagers;
 const Home = () => {
   const [isCopied, setIsCopied] = useState(false);
   const [showDropdown, setShowDropdown] = useState(false);
+  const featuresRef = useRef<HTMLDivElement>(null);
+  const dropdownButtonsRef = useRef<HTMLButtonElement[]>([]);
+  const cardsRef = useRef<HTMLAnchorElement[]>([]);
+  const cardWrapperRef = useRef<HTMLDivElement>(null);
+
+  // close dropdown on ESC key press
+  useEventListener("keydown", (e) => {
+    if (e.key === "Escape") setShowDropdown(false);
+  });
+
+  // dropdown up and down arrow key navigation
+  useEventListener("keydown", (e) => {
+    if (!showDropdown) return;
+    e.preventDefault();
+
+    if (e.key === "ArrowDown") {
+      const curr = dropdownButtonsRef.current.findIndex(
+        (el) => el === document.activeElement
+      );
+      const next = curr + 1;
+
+      if (next < dropdownButtonsRef.current.length) {
+        dropdownButtonsRef.current[next].focus();
+      } else {
+        dropdownButtonsRef.current[0].focus();
+      }
+    }
+
+    if (e.key === "ArrowUp") {
+      const curr = dropdownButtonsRef.current.findIndex(
+        (el) => el === document.activeElement
+      );
+      const prev = curr - 1;
+
+      if (prev >= 0) {
+        dropdownButtonsRef.current[prev].focus();
+      } else {
+        dropdownButtonsRef.current[
+          dropdownButtonsRef.current.length - 1
+        ].focus();
+      }
+    }
+  });
+
+  // copy on Enter key press
+  useEventListener("keydown", (e) => {
+    if (!showDropdown) return;
+    e.preventDefault();
+
+    if (e.key === "Enter") {
+      const currentIndex = dropdownButtonsRef.current.findIndex(
+        (el) => el === document.activeElement
+      );
+      copyToClipboard(
+        Object.keys(packageManagers)[currentIndex] as PackageManagers
+      );
+    }
+  });
+
+  useEffect(() => {
+    cardWrapperRef.current!.onmousemove = (e) => {
+      for (const card of cardsRef.current) {
+        const rect = card.getBoundingClientRect(),
+          x = e.clientX - rect.left,
+          y = e.clientY - rect.top;
+
+        card.style.setProperty("--mouse-x", `${x}px`);
+        card.style.setProperty("--mouse-y", `${y}px`);
+      }
+    };
+  }, []);
 
   const copyToClipboard = (pm: PackageManagers) => {
     setShowDropdown(false);
@@ -573,109 +651,149 @@ const Home = () => {
   };
 
   return (
-    <main>
-      <header className="container text-center md:text-start">
-        <h1 className="bg-gradient-to-b from-green-300 to-green-600 bg-clip-text text-3xl font-bold text-transparent md:py-4 md:text-5xl">
-          Next.js Template
-        </h1>
+    <main className="layout min-h-screen w-full bg-[#141414] bg-fixed text-white selection:bg-zinc-300 selection:text-black">
+      <section className="container px-4 py-12 md:px-6 md:pt-24 lg:pt-32 xl:pt-48">
+        <Image
+          src="/nextjs-light.svg"
+          alt="Next.js logo"
+          height={150}
+          width={150}
+          className="mx-auto mb-6 max-w-[100px] md:max-w-full"
+        />
 
-        <p className="mt-5 tracking-tight md:text-xl">
-          A Next.js template with <Span>TypeScript</Span>,{" "}
-          <Span>TailwindCSS</Span>, <Span>Lucide Icons</Span> and pre-configured
-          with <Span>ESLint</Span>, <Span>Prettier</Span> and <Span>Husky</Span>
-          .
-        </p>
-      </header>
+        <div className="grid items-center gap-6">
+          <div className="flex flex-col justify-center space-y-4 text-center">
+            <div className="mb-6 space-y-2">
+              <h1 className="bg-gradient-to-r from-white to-gray-500 bg-clip-text text-3xl font-bold tracking-tighter text-transparent sm:text-5xl xl:text-6xl">
+                Next.js Starter Template
+              </h1>
 
-      <section className="container relative mt-8 flex flex-col items-center gap-4 lg:flex-row">
-        <div className="rounded-xl border border-sky-500 bg-gradient-to-br from-violet-600 via-blue-600 to-blue-500 px-4 py-3 text-lg font-semibold hover:from-violet-600 hover:to-blue-700 hover:shadow-md hover:shadow-blue-600 active:ring-2 active:ring-blue-600 active:ring-offset-2 active:ring-offset-black/90">
-          <a
-            href="https://github.com/rajput-hemant/nextjs-template"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex w-fit items-center gap-1"
-          >
-            <Github className="mr-1 h-5 w-5" />
-            Visit on Github
-          </a>
-        </div>
-
-        <div className="group relative rounded-2xl border border-zinc-700 p-1 font-mono font-semibold hover:border-zinc-600">
-          <p className="flex cursor-pointer items-center gap-1 rounded-xl bg-zinc-800 px-4 py-3 hover:bg-zinc-700/25">
-            <span className="mr-2 text-orange-500">$</span>
-
-            <span>pnpx</span>
-
-            <span className="line-clamp-1">
-              degit rajput-hemant/nextjs-template {"<project-name>"}
-            </span>
-
-            <span
-              onClick={() => setShowDropdown(!showDropdown)}
-              className="ml-2 text-gray-400 transition-colors duration-300 group-hover:text-white"
-            >
-              {isCopied ? (
-                <ClipboardCheck className="h-5 w-5" />
-              ) : (
-                <Clipboard className="h-5 w-5" />
-              )}
-            </span>
-          </p>
-
-          {showDropdown && (
-            <div className="absolute right-8 top-3/4 z-10 rounded-xl border border-zinc-700 p-1 font-mono font-semibold hover:border-zinc-600">
-              <ul className="sticky rounded-md bg-zinc-800">
-                {(Object.keys(packageManagers) as PackageManagers[]).map(
-                  (c, i) => (
-                    <li
-                      key={i}
-                      onClick={() => copyToClipboard(c)}
-                      className="m-0.5 w-20 cursor-pointer rounded-md px-3 py-0.5 hover:bg-zinc-700/50 hover:text-green-300"
-                    >
-                      {c}
-                    </li>
-                  )
-                )}
-              </ul>
-            </div>
-          )}
-        </div>
-      </section>
-
-      <section className="container mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-        {features.map((f, i) => (
-          <div
-            key={i}
-            className="group rounded-xl border border-zinc-700 p-1 hover:border-zinc-600"
-          >
-            <div className="relative h-full w-full rounded-md bg-gradient-to-b from-zinc-800/50 via-zinc-800/50 to-zinc-800 px-6 py-4 hover:to-zinc-900">
-              <div className="mb-3.5 h-14 w-14">{<f.logo />}</div>
-
-              <h2 className="text-xl">
-                <a
-                  href={f.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex h-full w-full items-center after:absolute after:inset-0"
-                >
-                  {f.title}
-
-                  <MoveUpRight
-                    strokeWidth={0.75}
-                    className="ml-1 h-4 w-4 text-white"
-                  />
-                </a>
-              </h2>
-
-              <p className="mt-2 text-sm text-gray-300 group-hover:text-white">
-                {f.description}
+              <p className="mx-auto max-w-3xl text-zinc-200 md:text-xl">
+                A Next.js template with TypeScript, TailwindCSS, Lucide Icons
+                and pre-configured with ESLint, Prettier and Husky git hooks.
               </p>
             </div>
+
+            <div className="relative mx-auto rounded-xl border border-zinc-700 p-1 text-zinc-200 shadow-md transition-shadow duration-300 hover:shadow-black">
+              <p className="flex w-full cursor-pointer items-center gap-2 rounded-md bg-white/5 p-3 font-mono hover:bg-white/10">
+                <span className="text-orange-500">$</span>
+
+                <span>
+                  pnpx degit rajput-hemant/nextjs-template {"<project-name>"}
+                </span>
+
+                <button
+                  onClick={() => setShowDropdown(!showDropdown)}
+                  className="text-zinc-400 transition-colors hover:text-white"
+                >
+                  {isCopied ? (
+                    <ClipboardCheck className="h-5 w-5" />
+                  ) : (
+                    <Clipboard className="h-5 w-5" />
+                  )}
+                </button>
+              </p>
+
+              {showDropdown && (
+                <div className="absolute -right-20 top-8 z-10 rounded-xl border border-zinc-700 p-1 hover:border-zinc-600">
+                  <ul className="sticky flex flex-col rounded-md bg-zinc-800">
+                    {(Object.keys(packageManagers) as PackageManagers[]).map(
+                      (pm, i) => (
+                        <button
+                          key={i}
+                          ref={(el) => {
+                            dropdownButtonsRef.current[i] = el!;
+                          }}
+                          onClick={() => copyToClipboard(pm)}
+                          className="m-0.5 w-20 cursor-pointer rounded-md px-3 py-0.5 outline-none ring-zinc-600 hover:bg-zinc-700/50 hover:text-green-500 focus:ring-2"
+                        >
+                          {pm}
+                        </button>
+                      )
+                    )}
+                  </ul>
+                </div>
+              )}
+            </div>
+
+            <div className="flex items-center justify-center gap-4">
+              <a
+                href="https://github.com/new?template_name=nextjs-template&template_owner=rajput-hemant"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex rounded-full border border-zinc-700 px-6 py-3 duration-300 hover:bg-white/10 hover:shadow-md hover:shadow-black"
+              >
+                <FlameKindling className="mr-2 h-5 w-5" />
+                Use Template
+              </a>
+
+              <a
+                href="https://github.com/rajput-hemant/nextjs-template"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex rounded-full border border-zinc-700 px-6 py-3 duration-300 hover:bg-white/10 hover:shadow-md hover:shadow-black"
+              >
+                <Github className="mr-2 h-5 w-5 " />
+                View Repo
+              </a>
+            </div>
           </div>
-        ))}
+        </div>
       </section>
 
-      <footer className="container mb-4 mt-10 grid place-items-center">
+      <button
+        className="mx-auto flex animate-bounce justify-center text-zinc-600 duration-150 hover:text-white"
+        onClick={() =>
+          featuresRef.current?.scrollIntoView({ behavior: "smooth" })
+        }
+      >
+        <Mouse strokeWidth={1} className="h-10 w-10" />
+      </button>
+
+      <section ref={featuresRef} className="container mt-10">
+        <h2 className="mb-6 bg-gradient-to-r from-white to-gray-500 bg-clip-text text-center text-xl font-bold tracking-tighter text-transparent sm:text-3xl xl:text-4xl">
+          Features
+        </h2>
+
+        <div
+          ref={cardWrapperRef}
+          className="cards grid gap-6 md:grid-cols-2 lg:grid-cols-3"
+        >
+          {features.map((f, i) => (
+            <a
+              key={i}
+              ref={(el) => (cardsRef.current![i] = el!)}
+              href={f.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="card group relative h-48 w-full rounded-xl bg-zinc-700 shadow-md shadow-black outline-none before:absolute before:left-0 before:top-0 before:h-full before:w-full before:rounded-xl before:opacity-0 before:transition-opacity before:duration-500 after:absolute after:left-0 after:top-0 after:h-full after:w-full after:rounded-xl after:opacity-0 after:transition-opacity after:duration-500 hover:shadow-xl hover:shadow-black hover:before:opacity-100"
+            >
+              <div className="absolute inset-[1px] z-[2] flex flex-col gap-2.5 rounded-xl bg-[#141414] p-2.5">
+                <div className="relative h-full w-full overflow-hidden rounded-md p-4">
+                  <div className="mb-3.5 h-14 w-14">{<f.logo />}</div>
+
+                  <h3 className="text-xl">
+                    <a className="flex h-full w-full items-center after:absolute after:inset-0">
+                      {f.title}
+
+                      <MoveUpRight
+                        strokeWidth={0.75}
+                        className="ml-1 h-4 w-4 text-white"
+                      />
+                    </a>
+                  </h3>
+
+                  <p className="mt-2 text-sm text-gray-300 group-hover:text-white">
+                    {f.description}
+                  </p>
+                </div>
+              </div>
+            </a>
+          ))}
+        </div>
+      </section>
+
+      <footer className="container mt-10 grid place-items-center pb-4">
         <span className="flex items-center gap-1">
           <Copyright className="h-4 w-4" />
 
@@ -685,7 +803,7 @@ const Home = () => {
             href="https://github.com/rajput-hemant"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-green-300 hover:text-green-400"
+            className="text-green-300 underline-offset-4 hover:text-green-400 hover:underline"
           >
             rajput-hemant@github
           </a>
@@ -696,7 +814,3 @@ const Home = () => {
 };
 
 export default Home;
-
-const Span = ({ children }: { children: React.ReactNode }) => {
-  return <span className="text-green-300">{children}</span>;
-};
