@@ -668,17 +668,17 @@ const Home = () => {
                 Next.js Starter Template
               </h1>
 
-              <p className="mx-auto max-w-3xl text-zinc-200 md:text-xl">
+              <p className="mx-auto max-w-3xl text-sm text-zinc-200 sm:text-base md:text-xl">
                 A Next.js template with TypeScript, TailwindCSS, Lucide Icons
                 and pre-configured with ESLint, Prettier and Husky git hooks.
               </p>
             </div>
 
-            <div className="relative mx-auto rounded-xl border border-zinc-700 p-1 text-zinc-200 shadow-md transition-shadow duration-300 hover:shadow-black">
-              <p className="flex w-full cursor-pointer items-center gap-2 rounded-md bg-white/5 p-3 font-mono hover:bg-white/10">
+            <div className="relative mx-auto max-w-xs rounded-xl border border-zinc-700 p-1 text-zinc-200 shadow-md duration-300 hover:shadow-black sm:max-w-full">
+              <p className="flex w-full cursor-pointer items-center gap-2 rounded-md bg-white/5 px-2 py-3 font-mono hover:bg-white/10">
                 <span className="text-orange-500">$</span>
 
-                <span>
+                <span className="truncate">
                   pnpx degit rajput-hemant/nextjs-template {"<project-name>"}
                 </span>
 
@@ -716,7 +716,7 @@ const Home = () => {
               )}
             </div>
 
-            <div className="flex items-center justify-center gap-4">
+            <div className="flex flex-col items-center justify-center gap-4 md:flex-row">
               <a
                 href="https://github.com/new?template_name=nextjs-template&template_owner=rajput-hemant"
                 target="_blank"
@@ -757,7 +757,7 @@ const Home = () => {
 
         <div
           ref={cardWrapperRef}
-          className="cards grid gap-6 md:grid-cols-2 lg:grid-cols-3"
+          className="cards grid gap-3 md:grid-cols-2 md:gap-6 lg:grid-cols-3"
         >
           {features.map((f, i) => (
             <a
@@ -773,14 +773,14 @@ const Home = () => {
                   <div className="mb-3.5 h-14 w-14">{<f.logo />}</div>
 
                   <h3 className="text-xl">
-                    <a className="flex h-full w-full items-center after:absolute after:inset-0">
+                    <div className="flex h-full w-full items-center after:absolute after:inset-0">
                       {f.title}
 
                       <MoveUpRight
                         strokeWidth={0.75}
                         className="ml-1 h-4 w-4 text-white"
                       />
-                    </a>
+                    </div>
                   </h3>
 
                   <p className="mt-2 text-sm text-gray-300 group-hover:text-white">
