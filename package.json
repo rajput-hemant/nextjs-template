@@ -15,7 +15,7 @@
   },
   "dependencies": {
     "clsx": "^2.0.0",
-    "lucide-react": "^0.288.0",
+    "lucide-react": "^0.290.0",
     "next": "13.5.6",
     "next-themes": "^0.2.1",
     "react": "18.2.0",
@@ -27,8 +27,8 @@
     "@commitlint/config-conventional": "^17.8.1",
     "@ianvs/prettier-plugin-sort-imports": "^4.1.1",
     "@total-typescript/ts-reset": "^0.5.1",
-    "@types/node": "20.8.8",
-    "@types/react": "18.2.31",
+    "@types/node": "20.8.9",
+    "@types/react": "18.2.33",
     "@types/react-dom": "18.2.14",
     "@typescript-eslint/eslint-plugin": "^6.9.0",
     "@typescript-eslint/parser": "^6.9.0",
@@ -42,7 +42,7 @@
     "postcss": "8.4.31",
     "prettier": "^3.0.3",
     "prettier-plugin-tailwindcss": "^0.5.6",
-    "tailwindcss": "3.3.4",
+    "tailwindcss": "3.3.5",
     "typescript": "5.2.2"
   }
 }
