@@ -2,6 +2,7 @@
   "$schema": "https://json.schemastore.org/eslintrc",
   "root": true,
   "extends": [
+    "eslint:recommended",
     "next/core-web-vitals",
     "prettier",
     "plugin:tailwindcss/recommended",
@@ -10,8 +11,18 @@
   "plugins": ["tailwindcss"],
   "rules": {
     "@next/next/no-html-link-for-pages": "off",
-    "react/jsx-key": "off",
-    "tailwindcss/no-custom-classname": "off"
+    "react/jsx-key": "warn",
+    "tailwindcss/no-custom-classname": "off",
+    "tailwindcss/classnames-order": "warn",
+    "@typescript-eslint/consistent-type-imports": "warn",
+    "@typescript-eslint/no-unused-vars": [
+      "warn",
+      {
+        "argsIgnorePattern": "^_",
+        "varsIgnorePattern": "^_",
+        "caughtErrorsIgnorePattern": "^_"
+      }
+    ]
   },
   "settings": {
     "tailwindcss": {
