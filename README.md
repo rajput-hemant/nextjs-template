@@ -1,6 +1,6 @@
 <div align=center>
 
-![views] ![stars] ![forks] ![issues] ![license] ![repo-size]
+[![ntl-badge]][ntl-link] ![views] ![stars] ![forks] ![issues] ![license] ![repo-size]
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="public/nextjs-light.svg">
@@ -64,6 +64,16 @@ git add .
 git commit --no-verify -m "init"
 ```
 
+## Integrations
+
+[Kirimase](https://kirimase.dev) is a Next.js CLI tool that accelerates full-stack app development. It seamlessly integrates packages like ORM (Prisma or Drizzle), authentication (Auth.js, Clerk, Lucia, Kinde), UI components (Shadcn-UI), payments (Stripe), and email (Resend), following best practices.
+
+To add integrations to your project, run:
+
+```bash
+kirimase init
+```
+
 ## Available Scripts
 
 In the project directory, you can run:
@@ -76,38 +86,9 @@ In the project directory, you can run:
 | `preview`    | Builds and serves the app in the production mode.    |
 | `lint`       | Runs next lint on the project.                       |
 | `type-check` | Runs TypeScript type checker.                        |
+| `fmt`        | Formats the code with Prettier.                      |
 | `fmt:check`  | Checks if the code is formatted with Prettier.       |
-| `fmt:write`  | Formats the code with Prettier.                      |
 | `prepare`    | Installs husky git hooks.                            |
-
-## Folder Structure
-
-```bash
-.
-├── public
-│   ├── favicon.ico
-│   ├── nextjs-dark.svg
-│   └── nextjs-light.svg
-├── src
-│   ├── app
-│   │   ├── layout.tsx
-│   │   └── page.tsx
-│   ├── lib
-│   │   └── utils.ts
-│   ├── styles
-│   │   └── globals.css
-│   └── types
-│       └── reset.d.ts
-├── LICENSE
-├── README.md
-├── next.config.js
-├── next-env.d.ts
-├── package.json
-├── postcss.config.js
-├── renovate.json
-├── tailwind.config.js
-└── tsconfig.json
-```
 
 ## After Installation Checklist
 
@@ -118,6 +99,11 @@ In the project directory, you can run:
 ## Switching Package Manager
 
 This template uses [bun](https://bun.sh/docs/cli/install) as the default package manager. If you want to use `pnpm`, `npm` or `yarn`, you need to remove the `bun.lockb` file and run `pnpm i`, `npm i` or `yarn` to generate the lock file for the respective package manager.
+
+## Deployments
+
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/git/external?repository-url=https://github.com/rajput-hemant/nextjs-template)
+[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/rajput-hemant/nextjs-template)
 
 ## License
 
@@ -144,3 +130,5 @@ _Note: It may take up to 24h for the [contrib.rocks][contrib-rocks] plugin to up
 [contributors]: https://contrib.rocks/image?repo=rajput-hemant/nextjs-template&max=500
 [contributors-graph]: https://github.com/rajput-hemant/nextjs-template/graphs/contributors
 [contrib-rocks]: https://contrib.rocks/preview?repo=rajput-hemant%2Fnextjs-template
+[ntl-badge]: https://api.netlify.com/api/v1/badges/6955f80c-0747-4947-a344-e7c647012cbe/deploy-status
+[ntl-link]: https://app.netlify.com/sites/react-template-vite/deploys

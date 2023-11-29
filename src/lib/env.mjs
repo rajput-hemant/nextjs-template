@@ -17,7 +17,9 @@ export const env = createEnv({
      * Node.js Environment
      * -----------------------------------------------------------------------------------------------*/
 
-    NODE_ENV: z.enum(["development", "test", "production"]),
+    NODE_ENV: z
+      .enum(["development", "test", "production"])
+      .default("development"),
 
     /* -----------------------------------------------------------------------------------------------
      * NextAuth.js
