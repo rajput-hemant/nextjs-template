@@ -3,9 +3,9 @@ import { fontFamily } from "tailwindcss/defaultTheme";
 
 const config = {
   content: [
-    "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
-    "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
-    "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
+    "./app/**/*.{js,ts,jsx,tsx,mdx}",
+    "./pages/**/*.{js,ts,jsx,tsx,mdx}",
+    "./components/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
     container: {
@@ -17,10 +17,10 @@ const config = {
     },
     fontFamily: {
       sans: ["var(--font-geist-sans)", ...fontFamily.sans],
-      mono: ["var(--font-geist-mono)"],
-      inter: ["var(--font-inter)"],
-      poppins: ["var(--font-poppins)"],
-      overpass: ["var(--font-overpass)"],
+      mono: ["var(--font-geist-mono)", ...fontFamily.sans],
+      inter: ["var(--font-inter)", ...fontFamily.sans],
+      poppins: ["var(--font-poppins)", ...fontFamily.sans],
+      overpass: ["var(--font-overpass)", ...fontFamily.sans],
     },
   },
   plugins: [],

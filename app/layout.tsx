@@ -3,7 +3,7 @@ import { cn } from "@/lib/utils";
 import { Providers } from "@/components/providers";
 import { TailwindIndicator } from "@/components/tailwind-indicator";
 
-import "@/styles/globals.css";
+import "@/app/globals.css";
 
 export const metadata = {
   title: "Next.js + TypeScript Starter",
@@ -13,7 +13,12 @@ export const metadata = {
 const RootLayout = ({ children }: { children: React.ReactNode }) => {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={cn(poppins.className, "scroll-smooth antialiased")}>
+      <body
+        className={cn(
+          poppins.variable,
+          "font-poppins min-h-screen scroll-smooth antialiased"
+        )}
+      >
         <Providers>{children}</Providers>
 
         <TailwindIndicator />
