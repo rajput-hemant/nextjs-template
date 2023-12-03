@@ -7,7 +7,6 @@ import Image from "next/image";
 import {
   Clipboard,
   ClipboardCheck,
-  Copyright,
   FlameKindling,
   Github,
   Mouse,
@@ -651,7 +650,7 @@ const Home = () => {
   };
 
   return (
-    <main className="layout min-h-screen w-full bg-[#141414] bg-fixed text-white selection:bg-zinc-300 selection:text-black">
+    <main className="layout min-h-screen w-full bg-black bg-fixed text-white selection:bg-zinc-300 selection:text-black">
       <section className="container px-4 py-12 md:px-6 md:pt-24 lg:pt-32 xl:pt-48">
         <Image
           src="/nextjs-light.svg"
@@ -664,7 +663,7 @@ const Home = () => {
         <div className="grid items-center gap-6">
           <div className="flex flex-col justify-center space-y-4 text-center">
             <div className="mb-6 space-y-2">
-              <h1 className="bg-gradient-to-r from-white to-gray-500 bg-clip-text text-3xl font-bold tracking-tighter text-transparent sm:text-5xl xl:text-6xl">
+              <h1 className="bg-gradient-to-r from-white to-gray-500 bg-clip-text pb-2 text-3xl font-bold tracking-tighter text-transparent sm:text-5xl xl:text-6xl">
                 Next.js Starter Template
               </h1>
 
@@ -679,7 +678,7 @@ const Home = () => {
                 <span className="text-orange-500">$</span>
 
                 <span className="truncate">
-                  pnpx degit rajput-hemant/nextjs-template {"<project-name>"}
+                  bunx degit rajput-hemant/nextjs-template {"<project-name>"}
                 </span>
 
                 <button
@@ -751,7 +750,7 @@ const Home = () => {
       </button>
 
       <section ref={featuresRef} className="container mt-10">
-        <h2 className="mb-6 bg-gradient-to-r from-white to-gray-500 bg-clip-text text-center text-xl font-bold tracking-tighter text-transparent sm:text-3xl xl:text-4xl">
+        <h2 className="mb-6 bg-gradient-to-r from-white to-gray-500 bg-clip-text text-center text-xl font-bold tracking-tight text-transparent sm:text-3xl xl:text-4xl">
           Features
         </h2>
 
@@ -766,9 +765,9 @@ const Home = () => {
               href={f.link}
               target="_blank"
               rel="noopener noreferrer"
-              className="card group relative h-48 w-full rounded-xl bg-zinc-700 shadow-md shadow-black outline-none before:absolute before:left-0 before:top-0 before:h-full before:w-full before:rounded-xl before:opacity-0 before:transition-opacity before:duration-500 after:absolute after:left-0 after:top-0 after:h-full after:w-full after:rounded-xl after:opacity-0 after:transition-opacity after:duration-500 hover:shadow-xl hover:shadow-black hover:before:opacity-100"
+              className="card group relative h-48 w-full rounded-xl bg-zinc-800 shadow-md shadow-black outline-none before:absolute before:left-0 before:top-0 before:h-full before:w-full before:rounded-xl before:opacity-0 before:transition-opacity before:duration-500 after:absolute after:left-0 after:top-0 after:h-full after:w-full after:rounded-xl after:opacity-0 after:transition-opacity after:duration-500 hover:shadow-xl hover:shadow-black hover:before:opacity-100"
             >
-              <div className="absolute inset-[1px] z-[2] flex flex-col gap-2.5 rounded-xl bg-[#141414] p-2.5">
+              <div className="absolute inset-[1px] z-[2] flex flex-col gap-2.5 rounded-xl bg-black/75 p-2.5">
                 <div className="relative h-full w-full overflow-hidden rounded-md p-4">
                   <div className="mb-3.5 h-14 w-14">{<f.logo />}</div>
 
@@ -793,17 +792,15 @@ const Home = () => {
         </div>
       </section>
 
-      <footer className="container mt-10 grid place-items-center pb-4">
+      <footer className="container mt-10 grid place-items-center pb-4 text-neutral-400">
         <span className="flex items-center gap-1">
-          <Copyright className="h-4 w-4" />
-
+          &copy;
           <span>{new Date().getFullYear()}</span>
-
           <a
             href="https://github.com/rajput-hemant"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-green-300 underline-offset-4 hover:text-green-400 hover:underline"
+            className="underline-offset-4 duration-200 hover:text-white hover:underline"
           >
             rajput-hemant@github
           </a>
