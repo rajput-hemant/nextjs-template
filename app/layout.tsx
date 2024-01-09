@@ -1,7 +1,7 @@
-import { poppins } from "@/lib/fonts";
-import { cn } from "@/lib/utils";
 import { Providers } from "@/components/providers";
 import { TailwindIndicator } from "@/components/tailwind-indicator";
+import { poppins } from "@/lib/fonts";
+import { cn } from "@/lib/utils";
 
 import "@/app/globals.css";
 
