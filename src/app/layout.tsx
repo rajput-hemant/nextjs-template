@@ -1,16 +1,18 @@
-import { poppins } from "@/lib/fonts";
-import { cn } from "@/lib/utils";
+import "@/styles/globals.css";
+
+import React from "react";
+
 import { Providers } from "@/components/providers";
 import { TailwindIndicator } from "@/components/tailwind-indicator";
-
-import "@/styles/globals.css";
+import { poppins } from "@/lib/fonts";
+import { cn } from "@/lib/utils";
 
 export const metadata = {
   title: "Next.js + TypeScript Starter",
   description: "A starter template for Next.js and TypeScript",
 };
 
-const RootLayout = ({ children }: { children: React.ReactNode }) => {
+const RootLayout = ({ children }: React.PropsWithChildren) => {
   return (
     <html lang="en" suppressHydrationWarning>
       <body
