@@ -1,3 +1,4 @@
 {
-  "extends": ["github>rajput-hemant/renovate-config"]
+  "extends": ["github>rajput-hemant/renovate-config"],
+  "baseBranches": ["master", "src-dir"]
 }
