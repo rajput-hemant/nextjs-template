@@ -11,7 +11,7 @@
     "type-check": "tsc --noEmit",
     "fmt": "prettier --write \"**/*.{ts,tsx,mdx,json}\" --cache",
     "fmt:check": "prettier --check \"**/*.{ts,tsx,mdx,json}\" --cache",
-    "prepare": "husky install"
+    "prepare": "husky"
   },
   "dependencies": {
     "@t3-oss/env-nextjs": "^0.7.3",
