@@ -6,12 +6,9 @@ import { ThemeProvider } from "next-themes";
 
 import type { ThemeProviderProps } from "next-themes/dist/types";
 
-type Props = {
+export const Providers: React.FCC<{
   theme?: ThemeProviderProps;
-  children: React.ReactNode;
-};
-
-export function Providers({ children, theme }: Props) {
+}> = ({ theme, children }) => {
   return (
     <ThemeProvider
       attribute="class"
@@ -23,4 +20,4 @@ export function Providers({ children, theme }: Props) {
       {children}
     </ThemeProvider>
   );
-}
+};

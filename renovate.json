@@ -1,4 +1,5 @@
 {
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": ["github>rajput-hemant/renovate-config"],
-  "baseBranches": ["master", "src-dir"]
+  "baseBranches": ["master", "src-dir", "trpc"]
 }

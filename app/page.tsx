@@ -1,6 +1,6 @@
 "use client";
 
-import "@/app/layout.css";
+import "./layout.css";
 
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
@@ -14,14 +14,14 @@ import {
   MoveUpRight,
 } from "lucide-react";
 
-import { useEventListener } from "@/hooks/use-event-listner";
+import { useEventListener } from "~/hooks/use-event-listner";
 
-type Feature = {
+interface Feature {
   title: string;
   logo: () => JSX.Element;
   description: string;
   link: string;
-};
+}
 
 const features: Feature[] = [
   {
@@ -581,29 +581,29 @@ export default function Home() {
 
     if (e.key === "ArrowDown") {
       const curr = dropdownButtonsRef.current.findIndex(
-        (el) => el === document.activeElement
+        (el) => el === document.activeElement,
       );
       const next = curr + 1;
 
       if (next < dropdownButtonsRef.current.length) {
-        dropdownButtonsRef.current[next].focus();
+        dropdownButtonsRef.current[next]?.focus();
       } else {
-        dropdownButtonsRef.current[0].focus();
+        dropdownButtonsRef.current[0]?.focus();
       }
     }
 
     if (e.key === "ArrowUp") {
       const curr = dropdownButtonsRef.current.findIndex(
-        (el) => el === document.activeElement
+        (el) => el === document.activeElement,
       );
       const prev = curr - 1;
 
       if (prev >= 0) {
-        dropdownButtonsRef.current[prev].focus();
+        dropdownButtonsRef.current[prev]?.focus();
       } else {
         dropdownButtonsRef.current[
           dropdownButtonsRef.current.length - 1
-        ].focus();
+        ]?.focus();
       }
     }
   });
@@ -615,10 +615,10 @@ export default function Home() {
 
     if (e.key === "Enter") {
       const currentIndex = dropdownButtonsRef.current.findIndex(
-        (el) => el === document.activeElement
+        (el) => el === document.activeElement,
       );
       copyToClipboard(
-        Object.keys(packageManagers)[currentIndex] as PackageManagers
+        Object.keys(packageManagers)[currentIndex] as PackageManagers,
       );
     }
   });
@@ -643,7 +643,7 @@ export default function Home() {
     const text = `${packageManagers[pm]} degit rajput-hemant/nextjs-template <project-name>`;
 
     try {
-      navigator.clipboard.writeText(text);
+      void navigator.clipboard.writeText(text);
       setIsCopied(true);
     } catch (err) {
       console.error("Failed to copy: ", err);
@@ -686,11 +686,9 @@ export default function Home() {
                   onClick={() => setShowDropdown(!showDropdown)}
                   className="text-zinc-400 transition-colors hover:text-white"
                 >
-                  {isCopied ? (
+                  {isCopied ?
                     <ClipboardCheck className="size-5" />
-                  ) : (
-                    <Clipboard className="size-5" />
-                  )}
+                  : <Clipboard className="size-5" />}
                 </button>
               </p>
 
@@ -709,7 +707,7 @@ export default function Home() {
                         >
                           {pm}
                         </button>
-                      )
+                      ),
                     )}
                   </ul>
                 </div>
@@ -733,7 +731,7 @@ export default function Home() {
                 rel="noopener noreferrer"
                 className="flex rounded-full border border-zinc-700 px-6 py-3 duration-300 hover:bg-white/10 hover:shadow-md hover:shadow-black"
               >
-                <Github className="mr-2 size-5 " />
+                <Github className="mr-2 size-5" />
                 View Repo
               </a>
             </div>
@@ -763,7 +761,7 @@ export default function Home() {
             <a
               key={i}
               ref={(el) => {
-                cardsRef.current![i] = el!;
+                cardsRef.current[i] = el!;
               }}
               href={f.link}
               target="_blank"
