@@ -2,9 +2,10 @@ import "./globals.css";
 
 import React from "react";
 
-import { Providers } from "~/components/providers";
 import { TailwindIndicator } from "~/components/tailwind-indicator";
+import { ThemeProvider } from "~/components/theme-provider";
 import * as fonts from "~/lib/fonts";
+import { TRPCReactProvider } from "~/lib/trpc/react";
 import { cn } from "~/lib/utils";
 
 export const metadata = {
@@ -20,7 +21,14 @@ export default function RootLayout({ children }: React.PropsWithChildren) {
       className={cn(Object.values(fonts).map((font) => font.variable))}
     >
       <body className="min-h-dvh scroll-smooth font-sans antialiased">
-        <Providers>{children}</Providers>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <TRPCReactProvider>{children}</TRPCReactProvider>
+        </ThemeProvider>
 
         <TailwindIndicator />
       </body>

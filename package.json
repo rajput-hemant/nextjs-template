@@ -18,6 +18,9 @@
   },
   "dependencies": {
     "@t3-oss/env-nextjs": "^0.11.0",
+    "@trpc/client": "^11.0.0-rc.477",
+    "@trpc/react-query": "^11.0.0-rc.477",
+    "@trpc/server": "^11.0.0-rc.477",
     "babel-plugin-react-compiler": "^0.0.0-experimental-334f00b-20240725",
     "clsx": "^2.1.1",
     "geist": "^1.3.1",
@@ -26,6 +29,8 @@
     "next-themes": "^0.3.0",
     "react": "^19.0.0-rc-2d2cc042-20240809",
     "react-dom": "^19.0.0-rc-2d2cc042-20240809",
+    "server-only": "^0.0.1",
+    "superjson": "^2.2.1",
     "tailwind-merge": "^2.4.0",
     "zod": "^3.23.8"
   },
