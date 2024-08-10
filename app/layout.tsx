@@ -1,6 +1,6 @@
-import React from "react";
-
 import "./globals.css";
+
+import React from "react";
 
 import { Providers } from "~/components/providers";
 import { TailwindIndicator } from "~/components/tailwind-indicator";

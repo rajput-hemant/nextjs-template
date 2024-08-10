@@ -49,6 +49,8 @@ bun i -g degit || pnpm i -g degit || yarn global add degit || npm i -g degit
 degit rajput-hemant/nextjs-template <project-name>
 # src directory
 degit rajput-hemant/nextjs-template#src-dir <project-name>
+# tRPC
+degit rajput-hemant/nextjs-template#trpc <project-name>
 
 cd <project-name>
 ```
