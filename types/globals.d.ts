@@ -37,7 +37,7 @@ declare global {
 }
 
 declare module "react" {
-  type FCC<Props = StringObject> = React.FC<React.PropsWithChildren<Props>>;
+  type FCC<Props = UnknownObject> = React.FC<React.PropsWithChildren<Props>>;
 }
 
 export {};
