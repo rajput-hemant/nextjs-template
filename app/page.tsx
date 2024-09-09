@@ -1,9 +1,9 @@
-"use client";
+'use client'
 
-import "./layout.css";
+import './layout.css'
 
-import { useEffect, useRef, useState } from "react";
-import Image from "next/image";
+import Image from 'next/image'
+import { useEffect, useRef, useState } from 'react'
 
 import {
   Clipboard,
@@ -12,20 +12,20 @@ import {
   Github,
   Mouse,
   MoveUpRight,
-} from "lucide-react";
+} from 'lucide-react'
 
-import { useEventListener } from "~/hooks/use-event-listner";
+import { useEventListener } from '~/hooks/use-event-listner'
 
 interface Feature {
-  title: string;
-  logo: () => JSX.Element;
-  description: string;
-  link: string;
+  title: string
+  logo: () => JSX.Element
+  description: string
+  link: string
 }
 
 const features: Feature[] = [
   {
-    title: "Next.js",
+    title: 'Next.js',
     logo: () => (
       <svg
         height="100pt"
@@ -41,11 +41,11 @@ const features: Feature[] = [
         <path d="m784.3 945.1c-3.5 2.2-4.6 3.7-1.5 2 2.2-1.3 5.8-4 5.2-4.1-.3 0-2 1-3.7 2.1zm-6.9 4.5c-1.8 1.4-1.8 1.5.4.4 1.2-.6 2.2-1.3 2.2-1.5 0-.8-.5-.6-2.6 1.1zm-5 3c-1.8 1.4-1.8 1.5.4.4 1.2-.6 2.2-1.3 2.2-1.5 0-.8-.5-.6-2.6 1.1zm-5 3c-1.8 1.4-1.8 1.5.4.4 1.2-.6 2.2-1.3 2.2-1.5 0-.8-.5-.6-2.6 1.1zm-7.6 4c-3.8 2-3.6 2.8.2.9 1.7-.9 3-1.8 3-2 0-.7-.1-.6-3.2 1.1z" />
       </svg>
     ),
-    description: "The React Framework for Production.",
-    link: "https://nextjs.org/",
+    description: 'The React Framework for Production.',
+    link: 'https://nextjs.org/',
   },
   {
-    title: "React 18",
+    title: 'React 18',
     logo: () => (
       <svg
         viewBox="0 0 512 512"
@@ -58,11 +58,11 @@ const features: Feature[] = [
         <path d="M256 298.55a43 43 0 10-42.86-43 42.91 42.91 0 0042.86 43z" />
       </svg>
     ),
-    description: "JavaScript library for building user interfaces.",
-    link: "https://reactjs.org/",
+    description: 'JavaScript library for building user interfaces.',
+    link: 'https://reactjs.org/',
   },
   {
-    title: "TypeScript",
+    title: 'TypeScript',
     logo: () => (
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -84,11 +84,11 @@ const features: Feature[] = [
       </svg>
     ),
     description:
-      "Strongly typed programming language that builds on JavaScript.",
-    link: "https://www.typescriptlang.org/",
+      'Strongly typed programming language that builds on JavaScript.',
+    link: 'https://www.typescriptlang.org/',
   },
   {
-    title: "TailwindCSS",
+    title: 'TailwindCSS',
     logo: () => (
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -104,265 +104,34 @@ const features: Feature[] = [
         ></path>
       </svg>
     ),
-    description: "A utility-first CSS framework packed with classes.",
-    link: "https://tailwindcss.com/",
+    description: 'A utility-first CSS framework packed with classes.',
+    link: 'https://tailwindcss.com/',
   },
   {
-    title: "ESLint",
+    title: 'BiomeJS',
     logo: () => (
       <svg
+        width="64"
+        height="64"
+        version="1.0"
         xmlns="http://www.w3.org/2000/svg"
-        x="0px"
-        y="0px"
-        width="48"
-        height="48"
-        viewBox="0 0 48 48"
       >
+        <rect id="background" width="100%" height="100%" fill="none" />
         <path
-          fill="#7986cb"
-          d="M15.337,18.757l8.334-4.811c0.204-0.118,0.455-0.118,0.659,0l8.341,4.816	C32.874,18.879,33,19.097,33,19.332v9.632c0,0.235-0.126,0.453-0.329,0.57l-8.341,4.816c-0.204,0.118-0.455,0.118-0.659,0	l-8.341-4.816C15.126,29.417,15,29.199,15,28.964v-9.623C15,19.1,15.129,18.878,15.337,18.757"
-        ></path>
-        <path
-          fill="#3949ab"
-          d="M45.362,23.151L35.545,6.073C35.189,5.455,34.53,5,33.817,5H14.183c-0.713,0-1.372,0.455-1.729,1.073	L2.638,23.114c-0.357,0.618-0.357,1.397,0,2.015l9.817,16.938C12.811,42.684,13.47,43,14.183,43h19.634	c0.713,0,1.372-0.306,1.728-0.924l9.817-16.966C45.719,24.493,45.719,23.769,45.362,23.151 M36.66,31.821L24.356,38.92	c-0.217,0.125-0.484,0.125-0.701,0L11.34,31.821C11.13,31.699,11,31.475,11,31.232V17.063c0-0.243,0.13-0.468,0.341-0.59	l12.302-7.098c0.217-0.125,0.484-0.125,0.701,0l12.289,7.084C36.86,16.591,37,16.833,37,17.096v14.136	C37,31.475,36.87,31.7,36.66,31.821z"
-        ></path>
+          id="emblem"
+          d="m32 4.2875-14.255 24.69c5.409-1.6676 11.228-1.9148 16.869-0.58434l4.8177 1.1372-4.5328 19.22-4.8247-1.1372c-5.9293-1.3987-11.628 1.716-14.036 6.6851l-4.4595-2.1575c3.4034-7.0291 11.424-11.285 19.636-9.3476l2.2595-9.579c-8.0938-1.9081-16.624-9e-3 -23.145 5.153-6.5204 5.1607-10.329 13.028-10.329 21.344l64 7.9e-4z"
+          fill="#60a5fa"
+          strokeLinecap="square"
+          strokeWidth="4.8768"
+          // style="paint-order:markers fill stroke"
+        />
       </svg>
     ),
-    description: "Find and fix problems in your JavaScript code.",
-    link: "https://eslint.org/",
+    description: 'Format, lint, and more in a fraction of a second.',
+    link: 'https://biomejs.dev/',
   },
   {
-    title: "Prettier",
-    logo: () => (
-      <svg
-        id="Layer_1"
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 210 210"
-        width="40"
-        height="40"
-      >
-        <style type="text/css">{`.st0{fill:#56b3b4}.st1{fill:#ea5e5e}.st2{fill:#bf85bf}.st3{fill:#f7ba3e}.st4{opacity:.5;fill:#d0d4d8;enable-background:new}`}</style>
-        <title>prettier-icon-light</title>
-        <g id="Page-1">
-          <g id="prettier-icon-light">
-            <g id="Icon-_x28_Light_x29_">
-              <g id="Group">
-                <path
-                  id="Rectangle"
-                  className="st0"
-                  d="M155 40h10c2.8 0 5 2.2 5 5s-2.2 5-5 5h-10c-2.8 0-5-2.2-5-5s2.2-5 5-5z"
-                />
-                <path
-                  id="Rectangle_1_"
-                  className="st1"
-                  d="M5 200h50c2.8 0 5 2.2 5 5s-2.2 5-5 5H5c-2.8 0-5-2.2-5-5s2.2-5 5-5z"
-                />
-                <path
-                  id="Rectangle_2_"
-                  className="st2"
-                  d="M125 120h30c2.8 0 5 2.2 5 5s-2.2 5-5 5h-30c-2.8 0-5-2.2-5-5s2.2-5 5-5z"
-                />
-                <path
-                  id="Rectangle_3_"
-                  className="st1"
-                  d="M65 120h40c2.8 0 5 2.2 5 5s-2.2 5-5 5H65c-2.8 0-5-2.2-5-5s2.2-5 5-5z"
-                />
-                <path
-                  id="Rectangle_4_"
-                  className="st0"
-                  d="M5 120h40c2.8 0 5 2.2 5 5s-2.2 5-5 5H5c-2.8 0-5-2.2-5-5s2.2-5 5-5z"
-                />
-                <path
-                  id="Rectangle_5_"
-                  className="st2"
-                  d="M5 160h50c2.8 0 5 2.2 5 5s-2.2 5-5 5H5c-2.8 0-5-2.2-5-5s2.2-5 5-5z"
-                />
-                <path
-                  id="Rectangle_6_"
-                  className="st2"
-                  d="M5 80h50c2.8 0 5 2.2 5 5s-2.2 5-5 5H5c-2.8 0-5-2.2-5-5s2.2-5 5-5z"
-                />
-                <path
-                  id="Rectangle_7_"
-                  className="st3"
-                  d="M55 20h100c2.8 0 5 2.2 5 5s-2.2 5-5 5H55c-2.8 0-5-2.2-5-5s2.2-5 5-5z"
-                />
-                <path
-                  id="Rectangle_8_"
-                  className="st1"
-                  d="M5 20h30c2.8 0 5 2.2 5 5s-2.2 5-5 5H5c-2.8 0-5-2.2-5-5s2.2-5 5-5z"
-                />
-                <path
-                  id="Rectangle_9_"
-                  className="st3"
-                  d="M45 180h10c2.8 0 5 2.2 5 5s-2.2 5-5 5H45c-2.8 0-5-2.2-5-5s2.2-5 5-5z"
-                />
-                <path
-                  id="Rectangle_10_"
-                  className="st0"
-                  d="M45 60h10c2.8 0 5 2.2 5 5s-2.2 5-5 5H45c-2.8 0-5-2.2-5-5s2.2-5 5-5z"
-                />
-                <path
-                  id="Rectangle_11_"
-                  className="st0"
-                  d="M5 180h20c2.8 0 5 2.2 5 5s-2.2 5-5 5H5c-2.8 0-5-2.2-5-5s2.2-5 5-5z"
-                />
-                <path
-                  id="Rectangle_12_"
-                  className="st3"
-                  d="M5 60h20c2.8 0 5 2.2 5 5s-2.2 5-5 5H5c-2.8 0-5-2.2-5-5s2.2-5 5-5z"
-                />
-                <path
-                  id="Rectangle_13_"
-                  className="st4"
-                  d="M135 180h10c2.8 0 5 2.2 5 5s-2.2 5-5 5h-10c-2.8 0-5-2.2-5-5s2.2-5 5-5z"
-                />
-                <path
-                  id="Rectangle_14_"
-                  className="st4"
-                  d="M75 180h40c2.8 0 5 2.2 5 5s-2.2 5-5 5H75c-2.8 0-5-2.2-5-5s2.2-5 5-5z"
-                />
-                <path
-                  id="Rectangle_15_"
-                  className="st4"
-                  d="M165 180h40c2.8 0 5 2.2 5 5s-2.2 5-5 5h-40c-2.8 0-5-2.2-5-5s2.2-5 5-5z"
-                />
-                <path
-                  id="Rectangle_16_"
-                  className="st0"
-                  d="M85 100h80c2.8 0 5 2.2 5 5s-2.2 5-5 5H85c-2.8 0-5-2.2-5-5s2.2-5 5-5z"
-                />
-                <path
-                  id="Rectangle_17_"
-                  className="st3"
-                  d="M35 100h30c2.8 0 5 2.2 5 5s-2.2 5-5 5H35c-2.8 0-5-2.2-5-5s2.2-5 5-5z"
-                />
-                <path
-                  id="Rectangle_18_"
-                  className="st1"
-                  d="M5 100h10c2.8 0 5 2.2 5 5s-2.2 5-5 5H5c-2.8 0-5-2.2-5-5s2.2-5 5-5z"
-                />
-                <path
-                  id="Rectangle_19_"
-                  className="st2"
-                  d="M95 40h40c2.8 0 5 2.2 5 5s-2.2 5-5 5H95c-2.8 0-5-2.2-5-5s2.2-5 5-5z"
-                />
-                <path
-                  id="Rectangle_20_"
-                  className="st0"
-                  d="M5 40h70c2.8 0 5 2.2 5 5s-2.2 5-5 5H5c-2.8 0-5-2.2-5-5s2.2-5 5-5z"
-                />
-                <path
-                  id="Rectangle_21_"
-                  className="st3"
-                  d="M35 140h90c2.8 0 5 2.2 5 5s-2.2 5-5 5H35c-2.8 0-5-2.2-5-5s2.2-5 5-5z"
-                />
-                <path
-                  id="Rectangle_22_"
-                  className="st2"
-                  d="M5 140h10c2.8 0 5 2.2 5 5s-2.2 5-5 5H5c-2.8 0-5-2.2-5-5s2.2-5 5-5z"
-                />
-                <path
-                  id="Rectangle_23_"
-                  className="st1"
-                  d="M125 60h50c2.8 0 5 2.2 5 5s-2.2 5-5 5h-50c-2.8 0-5-2.2-5-5s2.2-5 5-5z"
-                />
-                <path
-                  id="Rectangle_24_"
-                  className="st3"
-                  d="M125 80h50c2.8 0 5 2.2 5 5s-2.2 5-5 5h-50c-2.8 0-5-2.2-5-5s2.2-5 5-5z"
-                />
-                <path
-                  id="Rectangle_25_"
-                  className="st0"
-                  d="M5 0h120c2.8 0 5 2.2 5 5s-2.2 5-5 5H5c-2.8 0-5-2.2-5-5s2.2-5 5-5z"
-                />
-                <path
-                  id="Rectangle_26_"
-                  className="st4"
-                  d="M145 0h60c2.8 0 5 2.2 5 5s-2.2 5-5 5h-60c-2.8 0-5-2.2-5-5s2.2-5 5-5z"
-                />
-                <path
-                  id="Rectangle_27_"
-                  className="st4"
-                  d="M145 140h20c2.8 0 5 2.2 5 5s-2.2 5-5 5h-20c-2.8 0-5-2.2-5-5s2.2-5 5-5z"
-                />
-                <path
-                  id="Rectangle_28_"
-                  className="st4"
-                  d="M185 140h20c2.8 0 5 2.2 5 5s-2.2 5-5 5h-20c-2.8 0-5-2.2-5-5s2.2-5 5-5z"
-                />
-                <path
-                  id="Rectangle_29_"
-                  className="st4"
-                  d="M175 120h30c2.8 0 5 2.2 5 5s-2.2 5-5 5h-30c-2.8 0-5-2.2-5-5s2.2-5 5-5z"
-                />
-                <path
-                  id="Rectangle_30_"
-                  className="st4"
-                  d="M175 20h30c2.8 0 5 2.2 5 5s-2.2 5-5 5h-30c-2.8 0-5-2.2-5-5s2.2-5 5-5z"
-                />
-                <path
-                  id="Rectangle_31_"
-                  className="st4"
-                  d="M185 100h20c2.8 0 5 2.2 5 5s-2.2 5-5 5h-20c-2.8 0-5-2.2-5-5s2.2-5 5-5z"
-                />
-                <path
-                  id="Rectangle_32_"
-                  className="st4"
-                  d="M185 40h20c2.8 0 5 2.2 5 5s-2.2 5-5 5h-20c-2.8 0-5-2.2-5-5s2.2-5 5-5z"
-                />
-                <path
-                  id="Rectangle_33_"
-                  className="st4"
-                  d="M195 60h10c2.8 0 5 2.2 5 5s-2.2 5-5 5h-10c-2.8 0-5-2.2-5-5s2.2-5 5-5z"
-                />
-                <path
-                  id="Rectangle_34_"
-                  className="st4"
-                  d="M195 80h10c2.8 0 5 2.2 5 5s-2.2 5-5 5h-10c-2.8 0-5-2.2-5-5s2.2-5 5-5z"
-                />
-                <path
-                  id="Rectangle_35_"
-                  className="st4"
-                  d="M115 160h90c2.8 0 5 2.2 5 5s-2.2 5-5 5h-90c-2.8 0-5-2.2-5-5s2.2-5 5-5z"
-                />
-                <path
-                  id="Rectangle_36_"
-                  className="st4"
-                  d="M75 160h20c2.8 0 5 2.2 5 5s-2.2 5-5 5H75c-2.8 0-5-2.2-5-5s2.2-5 5-5z"
-                />
-                <path
-                  id="Rectangle_37_"
-                  className="st4"
-                  d="M155 200h50c2.8 0 5 2.2 5 5s-2.2 5-5 5h-50c-2.8 0-5-2.2-5-5s2.2-5 5-5z"
-                />
-                <path
-                  id="Rectangle_38_"
-                  className="st4"
-                  d="M75 200h60c2.8 0 5 2.2 5 5s-2.2 5-5 5H75c-2.8 0-5-2.2-5-5s2.2-5 5-5z"
-                />
-                <path
-                  id="Rectangle_39_"
-                  className="st4"
-                  d="M75 60h30c2.8 0 5 2.2 5 5s-2.2 5-5 5H75c-2.8 0-5-2.2-5-5s2.2-5 5-5z"
-                />
-                <path
-                  id="Rectangle_40_"
-                  className="st4"
-                  d="M75 80h30c2.8 0 5 2.2 5 5s-2.2 5-5 5H75c-2.8 0-5-2.2-5-5s2.2-5 5-5z"
-                />
-              </g>
-            </g>
-          </g>
-        </g>
-      </svg>
-    ),
-    description: "An opinionated code formatter.",
-    link: "https://prettier.io/",
-  },
-  {
-    title: "Husky",
+    title: 'Husky',
     logo: () => (
       <svg id="emoji" viewBox="0 0 72 72" xmlns="http://www.w3.org/2000/svg">
         <g id="color">
@@ -474,11 +243,11 @@ const features: Feature[] = [
         </g>
       </svg>
     ),
-    description: "Git hooks made easy. (lint-staged, commitlint)",
-    link: "https://github.com/typicode/husky",
+    description: 'Git hooks made easy. (lint-staged, commitlint)',
+    link: 'https://github.com/typicode/husky',
   },
   {
-    title: "Lucide React",
+    title: 'Lucide React',
     logo: () => (
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -501,11 +270,11 @@ const features: Feature[] = [
         />
       </svg>
     ),
-    description: "A simply beautiful icon set.",
-    link: "https://lucide.dev",
+    description: 'A simply beautiful icon set.',
+    link: 'https://lucide.dev',
   },
   {
-    title: "Bun",
+    title: 'Bun',
     logo: () => (
       <svg viewBox="0 0 128 128">
         <path d="M113.744 41.999a18.558 18.558 0 0 0-.8-.772c-.272-.246-.528-.524-.8-.771s-.528-.525-.8-.771c-.272-.247-.528-.525-.8-.772s-.528-.524-.8-.771-.528-.525-.8-.772-.528-.524-.8-.771c7.936 7.52 12.483 17.752 12.656 28.481 0 25.565-26.912 46.363-60 46.363-18.528 0-35.104-6.526-46.128-16.756l.8.772.8.771.8.772.8.771.8.772.8.771.8.771c11.008 10.662 27.952 17.527 46.928 17.527 33.088 0 60-20.797 60-46.285 0-10.893-4.864-21.215-13.456-29.33z" />
@@ -547,108 +316,108 @@ const features: Feature[] = [
         />
       </svg>
     ),
-    description: "Bun is a fast JavaScript all-in-one toolkit",
-    link: "https://bun.sh",
+    description: 'Bun is a fast JavaScript all-in-one toolkit',
+    link: 'https://bun.sh',
   },
-];
+]
 
 const packageManagers = {
-  bun: "bunx",
-  pnpm: "pnpx",
-  npm: "npx",
-  yarn: "yarn dlx",
-};
+  bun: 'bunx',
+  pnpm: 'pnpx',
+  npm: 'npx',
+  yarn: 'yarn dlx',
+}
 
-type PackageManagers = keyof typeof packageManagers;
+type PackageManagers = keyof typeof packageManagers
 
 export default function Home() {
-  const [isCopied, setIsCopied] = useState(false);
-  const [showDropdown, setShowDropdown] = useState(false);
-  const featuresRef = useRef<HTMLDivElement>(null);
-  const dropdownButtonsRef = useRef<HTMLButtonElement[]>([]);
-  const cardsRef = useRef<HTMLAnchorElement[]>([]);
-  const cardWrapperRef = useRef<HTMLDivElement>(null);
+  const [isCopied, setIsCopied] = useState(false)
+  const [showDropdown, setShowDropdown] = useState(false)
+  const featuresRef = useRef<HTMLDivElement>(null)
+  const dropdownButtonsRef = useRef<HTMLButtonElement[]>([])
+  const cardsRef = useRef<HTMLAnchorElement[]>([])
+  const cardWrapperRef = useRef<HTMLDivElement>(null)
 
   // close dropdown on ESC key press
-  useEventListener("keydown", (e) => {
-    if (e.key === "Escape") setShowDropdown(false);
-  });
+  useEventListener('keydown', (e) => {
+    if (e.key === 'Escape') setShowDropdown(false)
+  })
 
   // dropdown up and down arrow key navigation
-  useEventListener("keydown", (e) => {
-    if (!showDropdown) return;
-    e.preventDefault();
+  useEventListener('keydown', (e) => {
+    if (!showDropdown) return
+    e.preventDefault()
 
-    if (e.key === "ArrowDown") {
+    if (e.key === 'ArrowDown') {
       const curr = dropdownButtonsRef.current.findIndex(
         (el) => el === document.activeElement,
-      );
-      const next = curr + 1;
+      )
+      const next = curr + 1
 
       if (next < dropdownButtonsRef.current.length) {
-        dropdownButtonsRef.current[next]?.focus();
+        dropdownButtonsRef.current[next]?.focus()
       } else {
-        dropdownButtonsRef.current[0]?.focus();
+        dropdownButtonsRef.current[0]?.focus()
       }
     }
 
-    if (e.key === "ArrowUp") {
+    if (e.key === 'ArrowUp') {
       const curr = dropdownButtonsRef.current.findIndex(
         (el) => el === document.activeElement,
-      );
-      const prev = curr - 1;
+      )
+      const prev = curr - 1
 
       if (prev >= 0) {
-        dropdownButtonsRef.current[prev]?.focus();
+        dropdownButtonsRef.current[prev]?.focus()
       } else {
         dropdownButtonsRef.current[
           dropdownButtonsRef.current.length - 1
-        ]?.focus();
+        ]?.focus()
       }
     }
-  });
+  })
 
   // copy on Enter key press
-  useEventListener("keydown", (e) => {
-    if (!showDropdown) return;
-    e.preventDefault();
+  useEventListener('keydown', (e) => {
+    if (!showDropdown) return
+    e.preventDefault()
 
-    if (e.key === "Enter") {
+    if (e.key === 'Enter') {
       const currentIndex = dropdownButtonsRef.current.findIndex(
         (el) => el === document.activeElement,
-      );
+      )
       copyToClipboard(
         Object.keys(packageManagers)[currentIndex] as PackageManagers,
-      );
+      )
     }
-  });
+  })
 
   useEffect(() => {
     cardWrapperRef.current!.onmousemove = (e) => {
       for (const card of cardsRef.current) {
         const rect = card.getBoundingClientRect(),
           x = e.clientX - rect.left,
-          y = e.clientY - rect.top;
+          y = e.clientY - rect.top
 
-        card.style.setProperty("--mouse-x", `${x}px`);
-        card.style.setProperty("--mouse-y", `${y}px`);
+        card.style.setProperty('--mouse-x', `${x}px`)
+        card.style.setProperty('--mouse-y', `${y}px`)
       }
-    };
-  }, []);
+    }
+  }, [])
 
   const copyToClipboard = (pm: PackageManagers) => {
-    setShowDropdown(false);
-    setIsCopied(true);
+    setShowDropdown(false)
+    setIsCopied(true)
 
-    const text = `${packageManagers[pm]} degit rajput-hemant/nextjs-template <project-name>`;
+    const text = `${packageManagers[pm]} degit rajput-hemant/nextjs-template <project-name>`
 
     try {
-      void navigator.clipboard.writeText(text);
-      setIsCopied(true);
+      void navigator.clipboard.writeText(text)
+      setIsCopied(true)
     } catch (err) {
-      console.error("Failed to copy: ", err);
+      console.error('Failed to copy: ', err)
     }
-  };
+  }
 
   return (
     <main className="layout min-h-screen w-full bg-black bg-fixed text-white selection:bg-zinc-300 selection:text-black">
@@ -679,16 +448,18 @@ export default function Home() {
                 <span className="text-orange-500">$</span>
 
                 <span className="truncate">
-                  pnpx degit rajput-hemant/nextjs-template {"<project-name>"}
+                  pnpx degit rajput-hemant/nextjs-template {'<project-name>'}
                 </span>
 
                 <button
                   onClick={() => setShowDropdown(!showDropdown)}
                   className="text-zinc-400 transition-colors hover:text-white"
                 >
-                  {isCopied ?
+                  {isCopied ? (
                     <ClipboardCheck className="size-5" />
-                  : <Clipboard className="size-5" />}
+                  ) : (
+                    <Clipboard className="size-5" />
+                  )}
                 </button>
               </p>
 
@@ -700,7 +471,7 @@ export default function Home() {
                         <button
                           key={i}
                           ref={(el) => {
-                            dropdownButtonsRef.current[i] = el!;
+                            dropdownButtonsRef.current[i] = el!
                           }}
                           onClick={() => copyToClipboard(pm)}
                           className="m-0.5 w-20 cursor-pointer rounded-md px-3 py-0.5 outline-none ring-zinc-600 hover:bg-zinc-700/50 hover:text-green-500 focus:ring-2"
@@ -742,7 +513,7 @@ export default function Home() {
       <button
         className="mx-auto flex animate-bounce justify-center text-zinc-600 duration-150 hover:text-white"
         onClick={() =>
-          featuresRef.current?.scrollIntoView({ behavior: "smooth" })
+          featuresRef.current?.scrollIntoView({ behavior: 'smooth' })
         }
       >
         <Mouse strokeWidth={1} className="size-10" />
@@ -761,7 +532,7 @@ export default function Home() {
             <a
               key={i}
               ref={(el) => {
-                cardsRef.current[i] = el!;
+                cardsRef.current[i] = el!
               }}
               href={f.link}
               target="_blank"
@@ -808,5 +579,5 @@ export default function Home() {
         </span>
       </footer>
     </main>
-  );
+  )
 }

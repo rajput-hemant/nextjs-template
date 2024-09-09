@@ -1,7 +1,7 @@
-import { env } from "~/lib/env";
+import { env } from '~/lib/env'
 
 export function TailwindIndicator() {
-  if (env.NODE_ENV === "production") return null;
+  if (env.NODE_ENV === 'production') return null
 
   return (
     <div className="fixed bottom-1 right-1 z-50 text-xs">
@@ -12,5 +12,5 @@ export function TailwindIndicator() {
       <div className="hidden xl:block 2xl:hidden">xl</div>
       <div className="hidden 2xl:block">2xl</div>
     </div>
-  );
+  )
 }

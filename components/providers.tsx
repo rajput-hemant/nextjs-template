@@ -1,13 +1,13 @@
-"use client";
+'use client'
 
-import * as React from "react";
+import * as React from 'react'
 
-import { ThemeProvider } from "next-themes";
+import { ThemeProvider } from 'next-themes'
 
-import type { ThemeProviderProps } from "next-themes/dist/types";
+import type { ThemeProviderProps } from 'next-themes/dist/types'
 
 export const Providers: React.FCC<{
-  theme?: ThemeProviderProps;
+  theme?: ThemeProviderProps
 }> = ({ theme, children }) => {
   return (
     <ThemeProvider
@@ -19,5 +19,5 @@ export const Providers: React.FCC<{
     >
       {children}
     </ThemeProvider>
-  );
-};
+  )
+}
