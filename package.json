@@ -18,7 +18,7 @@
   },
   "dependencies": {
     "@t3-oss/env-nextjs": "^0.11.1",
-    "babel-plugin-react-compiler": "^0.0.0",
+    "babel-plugin-react-compiler": "^0.0.0-experimental-734b737-20241003",
     "clsx": "^2.1.1",
     "geist": "^1.3.1",
     "lucide-react": "^0.447.0",
@@ -43,7 +43,7 @@
     "eslint": "8.57.1",
     "eslint-config-next": "14.2.14",
     "eslint-config-prettier": "^9.1.0",
-    "eslint-plugin-react-compiler": "^0.0.0",
+    "eslint-plugin-react-compiler": "^0.0.0-experimental-9a75bad-20241003",
     "eslint-plugin-tailwindcss": "^3.17.4",
     "husky": "^9.1.6",
     "lint-staged": "^15.2.10",
