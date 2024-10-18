@@ -16,12 +16,12 @@ import {
 
 import { useEventListener } from "~/hooks/use-event-listner";
 
-interface Feature {
+type Feature = {
   title: string;
   logo: () => JSX.Element;
   description: string;
   link: string;
-}
+};
 
 const features: Feature[] = [
   {
@@ -561,7 +561,7 @@ const packageManagers = {
 
 type PackageManagers = keyof typeof packageManagers;
 
-export default function Home() {
+const Home: React.FC = () => {
   const [isCopied, setIsCopied] = useState(false);
   const [showDropdown, setShowDropdown] = useState(false);
   const featuresRef = useRef<HTMLDivElement>(null);
@@ -809,4 +809,6 @@ export default function Home() {
       </footer>
     </main>
   );
-}
+};
+
+export default Home;
