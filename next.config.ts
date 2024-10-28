@@ -2,15 +2,16 @@
  * Run `build` or `dev` with `SKIP_ENV_VALIDATION` to skip env validation. This is especially useful
  * for Docker builds.
  */
-await import("./src/lib/env.js");
+import { NextConfig } from "next";
+
+import "./src/lib/env";
 
 const isProd = process.env.NODE_ENV === "production";
 
-/** @type {import('next').NextConfig} */
-const nextConfig = {
+const nextConfig: NextConfig = {
   reactStrictMode: true,
   experimental: {
-    ppr: true,
+    // ppr: true,
     reactCompiler: isProd,
     // ...
   },
