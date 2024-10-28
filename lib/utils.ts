@@ -8,6 +8,4 @@ import type { ClassValue } from "clsx";
  * @param inputs The class names to merge
  * @returns The merged class names
  */
-export function cn(...inputs: ClassValue[]) {
-  return twMerge(clsx(inputs));
-}
+export const cn = (...inputs: ClassValue[]) => twMerge(clsx(inputs));

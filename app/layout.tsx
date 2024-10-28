@@ -5,7 +5,7 @@ import React from "react";
 import { TailwindIndicator } from "~/components/tailwind-indicator";
 import { ThemeProvider } from "~/components/theme-provider";
 import * as fonts from "~/lib/fonts";
-import { TRPCReactProvider } from "~/lib/trpc/react";
+import { TRPCReactProvider } from "~/lib/trpc/rq-client";
 import { cn } from "~/lib/utils";
 
 export const metadata = {
@@ -13,7 +13,7 @@ export const metadata = {
   description: "A starter template for Next.js and TypeScript",
 };
 
-export default function RootLayout({ children }: React.PropsWithChildren) {
+const RootLayout: React.FCC = ({ children }) => {
   return (
     <html
       lang="en"
@@ -34,4 +34,6 @@ export default function RootLayout({ children }: React.PropsWithChildren) {
       </body>
     </html>
   );
-}
+};
+
+export default RootLayout;
