@@ -4,7 +4,7 @@ import * as React from "react";
 
 import { ThemeProvider } from "next-themes";
 
-import type { ThemeProviderProps } from "next-themes/dist/types";
+import type { ThemeProviderProps } from "next-themes";
 
 export const Providers: React.FCC<{
   theme?: ThemeProviderProps;

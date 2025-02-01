@@ -45,7 +45,7 @@ const features: Feature[] = [
     link: "https://nextjs.org/",
   },
   {
-    title: "React 18",
+    title: "React 19",
     logo: () => (
       <svg
         viewBox="0 0 512 512"
