@@ -45,7 +45,7 @@ const features: Feature[] = [
     link: "https://nextjs.org/",
   },
   {
-    title: "React 18",
+    title: "React 19",
     logo: () => (
       <svg
         viewBox="0 0 512 512"
@@ -664,7 +664,7 @@ const Home: React.FC = () => {
         <div className="grid items-center gap-6">
           <div className="flex flex-col justify-center space-y-4 text-center">
             <div className="mb-6 space-y-2">
-              <h1 className="bg-gradient-to-r from-white to-gray-500 bg-clip-text pb-2 text-3xl font-bold tracking-tighter text-transparent sm:text-5xl xl:text-6xl">
+              <h1 className="bg-linear-to-r from-white to-gray-500 bg-clip-text pb-2 text-3xl font-bold tracking-tighter text-transparent sm:text-5xl xl:text-6xl">
                 Next.js Starter Template
               </h1>
 
@@ -693,7 +693,7 @@ const Home: React.FC = () => {
               </p>
 
               {showDropdown && (
-                <div className="absolute -right-20 top-8 z-10 rounded-xl border border-zinc-700 p-1 hover:border-zinc-600">
+                <div className="absolute top-8 -right-20 z-10 rounded-xl border border-zinc-700 p-1 hover:border-zinc-600">
                   <ul className="sticky flex flex-col rounded-md bg-zinc-800">
                     {(Object.keys(packageManagers) as PackageManagers[]).map(
                       (pm, i) => (
@@ -703,7 +703,7 @@ const Home: React.FC = () => {
                             dropdownButtonsRef.current[i] = el!;
                           }}
                           onClick={() => copyToClipboard(pm)}
-                          className="m-0.5 w-20 cursor-pointer rounded-md px-3 py-0.5 outline-none ring-zinc-600 hover:bg-zinc-700/50 hover:text-green-500 focus:ring-2"
+                          className="m-0.5 w-20 cursor-pointer rounded-md px-3 py-0.5 ring-zinc-600 outline-none hover:bg-zinc-700/50 hover:text-green-500 focus:ring-2"
                         >
                           {pm}
                         </button>
@@ -749,7 +749,7 @@ const Home: React.FC = () => {
       </button>
 
       <section ref={featuresRef} className="container mt-10">
-        <h2 className="mb-6 bg-gradient-to-r from-white to-gray-500 bg-clip-text text-center text-xl font-bold tracking-tighter text-transparent sm:text-3xl xl:text-4xl">
+        <h2 className="mb-6 bg-linear-to-r from-white to-gray-500 bg-clip-text text-center text-xl font-bold tracking-tighter text-transparent sm:text-3xl xl:text-4xl">
           Features
         </h2>
 
@@ -766,9 +766,9 @@ const Home: React.FC = () => {
               href={f.link}
               target="_blank"
               rel="noopener noreferrer"
-              className="card group relative h-48 w-full rounded-xl bg-zinc-700 shadow-md shadow-black outline-none before:absolute before:left-0 before:top-0 before:size-full before:rounded-xl before:opacity-0 before:transition-opacity before:duration-500 after:absolute after:left-0 after:top-0 after:size-full after:rounded-xl after:opacity-0 after:transition-opacity after:duration-500 hover:shadow-xl hover:shadow-black hover:before:opacity-100"
+              className="card group relative h-48 w-full rounded-xl bg-zinc-700 shadow-md shadow-black outline-none before:absolute before:top-0 before:left-0 before:size-full before:rounded-xl before:opacity-0 before:transition-opacity before:duration-500 after:absolute after:top-0 after:left-0 after:size-full after:rounded-xl after:opacity-0 after:transition-opacity after:duration-500 hover:shadow-xl hover:shadow-black hover:before:opacity-100"
             >
-              <div className="absolute inset-px z-[2] flex flex-col gap-2.5 rounded-xl bg-[#141414] p-2.5">
+              <div className="absolute inset-px z-2 flex flex-col gap-2.5 rounded-xl bg-[#141414] p-2.5">
                 <div className="relative size-full overflow-hidden rounded-md p-4">
                   <div className="mb-3.5 size-14">{<f.logo />}</div>
 
