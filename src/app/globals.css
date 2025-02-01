@@ -1,3 +1,19 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+
+@utility container {
+  margin-inline: auto;
+  padding-inline: 1rem;
+
+  @media (min-width: 1280px) {
+    max-width: 1280px;
+  }
+}
+
+@theme {
+  --font-family-sans: var(--font-geist-sans), ui-sans-serif, system-ui,
+    sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
+    "Noto Color Emoji";
+  --font-family-mono: var(--font-geist-mono), ui-sans-serif, system-ui,
+    sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
+    "Noto Color Emoji";
+}
