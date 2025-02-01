@@ -17,7 +17,7 @@
     "prepare": "husky"
   },
   "dependencies": {
-    "@t3-oss/env-nextjs": "^0.11.1",
+    "@t3-oss/env-nextjs": "^0.12.0",
     "clsx": "^2.1.1",
     "geist": "^1.3.1",
     "lucide-react": "0.474.0",
@@ -35,23 +35,23 @@
     "@tailwindcss/postcss": "^4.0.3",
     "@total-typescript/ts-reset": "^0.6.1",
     "@types/eslint": "9.6.1",
-    "@types/node": "22.7.5",
+    "@types/node": "22.13.0",
     "@types/react": "^19.0.8",
     "@types/react-dom": "^19.0.3",
     "@typescript-eslint/eslint-plugin": "^8.22.0",
     "@typescript-eslint/parser": "^8.22.0",
     "babel-plugin-react-compiler": "^19.0.0-beta-e552027-20250112",
-    "eslint": "9.13.0",
-    "eslint-config-next": "15.0.1",
+    "eslint": "9.19.0",
+    "eslint-config-next": "15.1.6",
     "eslint-config-prettier": "^10.0.1",
     "eslint-plugin-react-compiler": "^19.0.0-beta-e552027-20250112",
     "husky": "^9.1.7",
     "lint-staged": "^15.4.3",
-    "postcss": "8.4.47",
+    "postcss": "8.5.1",
     "prettier": "^3.4.2",
     "prettier-plugin-tailwindcss": "^0.6.11",
     "tailwindcss": "^4.0.3",
-    "typescript": "5.6.3"
+    "typescript": "5.7.3"
   },
   "lint-staged": {
     "*.{ts,tsx,md,mdx}": [
@@ -67,6 +67,6 @@
     ]
   },
   "engines": {
-    "node": ">=20.18.0"
+    "node": ">=20.18.2"
   }
 }
