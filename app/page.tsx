@@ -14,7 +14,7 @@ import {
   MoveUpRight,
 } from "lucide-react";
 
-import { useEventListener } from "~/hooks/use-event-listner";
+import { useEventListener } from "~/hooks/use-event-listener";
 
 type Feature = {
   title: string;
@@ -608,6 +608,20 @@ const Home: React.FC = () => {
     }
   });
 
+  const copyToClipboard = (pm: PackageManagers) => {
+    setShowDropdown(false);
+    setIsCopied(true);
+
+    const text = `${packageManagers[pm]} degit rajput-hemant/nextjs-template <project-name>`;
+
+    try {
+      void navigator.clipboard.writeText(text);
+      setIsCopied(true);
+    } catch (err) {
+      console.error("Failed to copy: ", err);
+    }
+  };
+
   // copy on Enter key press
   useEventListener("keydown", (e) => {
     if (!showDropdown) return;
@@ -636,20 +650,6 @@ const Home: React.FC = () => {
     };
   }, []);
 
-  const copyToClipboard = (pm: PackageManagers) => {
-    setShowDropdown(false);
-    setIsCopied(true);
-
-    const text = `${packageManagers[pm]} degit rajput-hemant/nextjs-template <project-name>`;
-
-    try {
-      void navigator.clipboard.writeText(text);
-      setIsCopied(true);
-    } catch (err) {
-      console.error("Failed to copy: ", err);
-    }
-  };
-
   return (
     <main className="layout min-h-screen w-full bg-black bg-fixed text-white selection:bg-zinc-300 selection:text-black">
       <section className="container px-4 py-12 md:px-6 md:pt-24 lg:pt-32 xl:pt-48">
@@ -658,7 +658,7 @@ const Home: React.FC = () => {
           alt="Next.js logo"
           height={150}
           width={150}
-          className="mx-auto mb-6 max-w-[100px] md:max-w-full"
+          className="mx-auto mb-6 max-w-25 md:max-w-full"
         />
 
         <div className="grid items-center gap-6">
@@ -796,7 +796,15 @@ const Home: React.FC = () => {
       <footer className="container mt-10 grid place-items-center pb-4 text-sm text-neutral-400">
         <span className="flex items-center gap-1">
           &copy;
-          <span>{new Date().getFullYear()}</span>
+          <React.Suspense
+            fallback={
+              <span className="inline-flex w-9 items-center justify-center">
+                ...
+              </span>
+            }
+          >
+            <CurrentYear />
+          </React.Suspense>
           <a
             href="https://github.com/rajput-hemant"
             target="_blank"
@@ -812,3 +820,7 @@ const Home: React.FC = () => {
 };
 
 export default Home;
+
+const CurrentYear: React.FC = () => (
+  <span className="w-9">{new Date().getFullYear()}</span>
+);
