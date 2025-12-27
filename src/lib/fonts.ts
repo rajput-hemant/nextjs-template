@@ -1,13 +1,11 @@
-import { GeistMono } from "geist/font/mono";
-import { GeistSans } from "geist/font/sans";
+import { Geist, Geist_Mono } from "next/font/google";
 
 /* -----------------------------------------------------------------------------------------------
  * Geist Fonts (https://vercel.com/font / https://www.npmjs.com/package/geist)
  * -----------------------------------------------------------------------------------------------*/
 
-export const fontSans = GeistSans;
-
-export const fontMono = GeistMono;
+export const fontSans = Geist({ variable: "--font-sans" });
+export const fontMono = Geist_Mono({ variable: "--font-mono" });
 
 /* -----------------------------------------------------------------------------------------------
  * Google Fonts
