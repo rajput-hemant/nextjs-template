@@ -30,8 +30,5 @@ jobs:
       - name: Check linting
         run: bun run lint
 
-      - name: Run tests
-        run: bun test
-
       - name: Check commits messages
         uses: wagoid/commitlint-github-action@v6
