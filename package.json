@@ -28,10 +28,10 @@
     "zod": "^4.3.6"
   },
   "devDependencies": {
-    "@commitlint/cli": "^20.5.0",
+    "@commitlint/cli": "^20.5.2",
     "@commitlint/config-conventional": "^20.5.0",
     "@ianvs/prettier-plugin-sort-imports": "^4.7.1",
-    "@tailwindcss/postcss": "^4.2.2",
+    "@tailwindcss/postcss": "^4.2.4",
     "@total-typescript/ts-reset": "^0.6.1",
     "@types/eslint": "9.6.1",
     "@types/node": "25.6.0",
@@ -45,10 +45,10 @@
     "eslint-plugin-react-hooks": "^7.1.1",
     "husky": "^9.1.7",
     "lint-staged": "^16.4.0",
-    "postcss": "8.5.10",
+    "postcss": "8.5.12",
     "prettier": "^3.8.3",
-    "prettier-plugin-tailwindcss": "^0.7.2",
-    "tailwindcss": "^4.2.2",
+    "prettier-plugin-tailwindcss": "^0.7.3",
+    "tailwindcss": "^4.2.4",
     "typescript": "5.9.3"
   },
   "lint-staged": {
